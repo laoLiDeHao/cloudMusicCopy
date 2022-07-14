@@ -1,0 +1,226 @@
+.Player_main {
+    width: 1200px;
+    height: 50px;
+    user-select: none;
+    // border: 1px red solid;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: rgba(255, 255, 255, 0.492);
+    position:relative;
+    & span {
+        cursor: pointer;
+    }
+    & span:hover{
+        color: rgba(255, 255, 255, 1.000);
+    }
+
+    .Player_ctrl {
+        width: 200px;
+        height: 50px;
+        // border: 1px red solid;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+
+    // 中间的封面，进度条等
+    .Player_vision {
+        width: 650px;
+        height: 50px;
+        // border: 1px red solid;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        // 封面
+        .Player_photo{
+            width: 50px;
+            height: 50px;
+            border: 2px rgba(255, 255, 255, 0.325) solid;
+            &>img{
+                width: 46px;
+                height: 46px;
+            }
+        }
+        .Player_playInfo{
+            width: 600px;
+            height: 50px;
+            // border: 1px red solid;
+            // 歌曲名 作者
+            &>div:nth-child(1){
+                height: 20px;
+                // border: 1px red solid;
+                line-height: 20px;
+                font-size: 10px;
+                &>span{
+                    margin-left: 2px;
+                    margin-right: 10px;
+                }
+                &>span:hover{
+                    text-decoration: underline;
+                }
+
+            }
+            // 进度条
+            &>div:nth-child(2){
+                height: 30px;
+                // border: 1px red solid;
+                display: flex;
+                justify-content: center;
+                .Player_silderBox{
+                    width: 500px;
+                    height: 30px;
+                }
+                .Player_timeBox{
+                    width: 100px;
+                    height: 30px;
+                    text-align: center;
+                }
+            }
+        }
+    }
+    // 歌词 收藏 和分享
+    .Player_share {
+        width: 100px;
+        height: 50px;
+
+        // border: 1px red solid;
+        font-size: 18px;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+
+    .Player_list {
+        width: 100px;
+        height: 50px;
+        // border: 1px red solid;
+        //   font-size: 22px;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+
+
+}
+// 播放列表
+.Player_togglelist{
+    background: #1D1B19;
+    width: 1000px;
+    min-height: 200px;
+    max-height: 400px;
+    border: 1px black solid;
+    position: absolute;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    bottom: 49px;
+    display: flex;
+        //播放列表 
+    .Player_playlist{
+        width: 600px;
+        border: 1px black solid;
+        
+        // 播放列表 收藏 清除
+        &>div:nth-child(1){
+            width: 600px;
+            height: 30px;
+            line-height: 30px;
+            background: black;
+            text-align: center;
+            display: flex;
+            justify-content: space-between;
+            // 播放列表
+            &>div:nth-child(1){
+                width: 120px;
+                color: white;
+                // height: 30px;
+            }
+            &>div:nth-child(2){
+                width: 160px;
+                // height: 30px;
+                display: flex;
+                // 收藏 清除
+                &>div{
+                    width: 80px;
+                    cursor: pointer;
+                    // height: 30px;
+                }
+                &>div:hover{
+                    color: white;
+                }
+            }
+        }
+        //真的播放 列表中的每个歌曲
+        .music_inlist{
+            width: 600px;
+            height: 30px;
+            line-height: 30px;
+            display: flex;
+            &>div:nth-child(1){
+                width: 400px;
+                padding-left: 20px;
+                color: white;
+                font-weight: 200;
+            }
+            &>div:nth-child(2){
+                width: 120px;
+            }
+            &>div:nth-child(3){
+                width: 40px;
+            }
+            &>div:nth-child(4){
+                width: 40px;
+                text-align: center;
+            }
+        }
+        .music_inlist:hover{
+            background: black;
+        }
+        .music_playing{
+            background: black;
+            position: relative;
+        }
+        .music_playing::after{
+            content: '';
+            display: block;
+            width: 0px;
+            height:0px;
+            // background: red;
+            border: 10px rgba(255, 0, 0, 0) solid;
+            border-left: 10px rgba(255, 0, 0, 1) solid;
+            position: absolute;
+            top: 7px;
+        }
+
+      
+    }
+        // 歌词
+    .Player_playingLyric{
+        width: 400px;
+        border: 1px black solid;
+        &>div:nth-child(1){
+            width: 400px;
+            height: 30px;
+            background: black;
+            text-align: center;
+            font-weight: 700;
+            color: white;
+        }
+        &>div:nth-child(2){
+            width: 400px;
+            padding-top: 20px;
+            height: 100%;
+            text-align: center;
+            line-height: 200px;
+        }
+    }
+}
+
+// 图标样式
+.iconfont {
+    font-family: "iconfont" !important;
+    font-size: 18px;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }

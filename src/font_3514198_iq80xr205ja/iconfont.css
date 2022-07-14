@@ -1,0 +1,33 @@
+@font-face {
+  font-family: "iconfont"; /* Project id 3514198 */
+  src: url('iconfont.woff2?t=1657527104078') format('woff2'),
+       url('iconfont.woff?t=1657527104078') format('woff'),
+       url('iconfont.ttf?t=1657527104078') format('truetype');
+}
+
+
+
+.icon-voice:before {
+  content: "\e674";
+}
+
+.icon-liebiaoshunxu:before {
+  content: "\e802";
+}
+
+.icon-random-full:before {
+  content: "\ea7c";
+}
+
+.icon-danquxunhuan:before {
+  content: "\e6a2";
+}
+
+.icon-liebiaoxunhuan:before {
+  content: "\e6a3";
+}
+
+.icon-bofanggedan:before {
+  content: "\e6be";
+}
+
