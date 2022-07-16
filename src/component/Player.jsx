@@ -1,3 +1,5 @@
+
+
 import './less/Player.less'
 // antd额外
 import { Slider, Switch } from 'antd';
@@ -36,13 +38,24 @@ const Player = () => {
     )
     // 进度条参数
 
-    let [nowTime, setNowtime] = useState(0)
+    let [nowTime, setNowtime] = useState(0)//当前进度
+    let [duration,setDuration] = useState(0.1)//音频总长
     // 当拖动进度条时，将已播放位置换单对应位置
     let changeSilder = (value) => {
-
-        setNowtime(parseInt(playing.longest * value / 100))
+        audioTag.current.currentTime=value
+       console.log(value)
 
     }
+
+    let [silderValue,setSilderValue] = useState(0)
+
+    useEffect(()=>{
+        setSilderValue(nowTime)
+        // if(!initNum)
+        if(nowTime===duration) 
+           changeCurrent(1)
+        //     setTimeout(changeCurrent(1),1500)
+    },[nowTime])
     // 歌词显示
     let [showlyric, setShowlyric] = useState(false)
     let changelyric = () => {
@@ -142,10 +155,18 @@ const Player = () => {
     // 切歌后自动播放
 
     // let autoPause=()=>{setTimeout(setIsplay(false),500)}
+    // 播放进度
+    let moveSlider = ()=>{
+        // console.log(audioTag.current.duration)
+
+        setNowtime(parseInt(audioTag.current.currentTime))
+        setDuration(parseInt(audioTag.current.duration))
+    }
    
     return (
         <div className='Player_main'>
             <audio
+            onTimeUpdate={moveSlider}
                 ref={audioTag}
                 key={playing.id}
                 id={playing.id}
@@ -176,11 +197,12 @@ const Player = () => {
                     {/* 进度条 */}
                     <div>
                         <div className='Player_silderBox'>
-                            <Slider defaultValue={nowTime} onAfterChange={(value) => { changeSilder(value) }} disabled={false} />
+                            <Slider value={nowTime} max={duration} onAfterChange={(value) => { changeSilder(value) }} disabled={false} ></Slider>
                         </div>
                         <div className='Player_timeBox'>
                             <span>{parseInt(nowTime / 60)}:{nowTime % 60}</span>/
-                            <span>{parseInt(playing.longest / 60)}:{playing.longest % 60}</span>
+                            {/* <span>{parseInt(playing.longest / 60)}:{playing.longest % 60}</span> */}
+                            <span>{parseInt(parseInt(duration) / 60)}:{parseInt(duration) % 60}</span>
                         </div>
                     </div>
                 </div>

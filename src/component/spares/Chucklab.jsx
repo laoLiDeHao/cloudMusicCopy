@@ -1,3 +1,11 @@
+/*
+ * @Author: Ember.PL 1084861534@163.com
+ * @Date: 2022-07-14 22:09:20
+ * @LastEditors: Ember.PL 1084861534@163.com
+ * @LastEditTime: 2022-07-15 09:26:28
+ * @FilePath: \MusicPlayer\src\component\spares\Chucklab.jsx
+ * @Description: 红底的展示框，后面页面都可以用
+ */
 
 /*
 参数
@@ -20,14 +28,14 @@
 import {PlusOutlined} from '@ant-design/icons';
 import { Link } from 'react-router-dom';
 const boxStyle = {
-    width: "748px",
+    width: "100%",
     minHeight: "50px",
     // border:"1px solid red",
     paddingBottom: "10px"
 }
 
 const titleStyle = {
-    width: '748px',
+    width: '100%',
     height: "40px",
     borderBottom: "3px solid red",
     display: "flex",
